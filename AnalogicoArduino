@@ -1,0 +1,18 @@
+#include "Joystick.h"
+int posicaoHoraria[10] = {-1,0, 45, 90, 135, 180, 225, 270,315,360}
+int posicaoAntiHorario[10] = {-1, 360, 315, 270, 225, 180, 135, 90, 45 0};
+int posicao =0;
+unsigned long delayHat;
+
+void setup() {
+  Joystick.begin();
+}
+
+void loop() {
+ Joystick.setXAxis(map(analogRead(A0),0,1024,128,-127));
+ Joystick.setYAxis(map(analogRead(A0),0,1024,127,-128));
+ Joystick.setZAxis(map(analogRead(A0),0,1024,128,-127));
+
+Joystick.setXAxisRotation(map(analogRead(A3),0, 1024, 0, 360));
+Joystick.setYAxisRotation(map(analogRead(A3),0, 1024, 0, 360));
+}
